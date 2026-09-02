@@ -44,11 +44,10 @@ export function WhatsAppPreview({ messages, receiver, settings, typingText }: Pr
       )}
 
       <main
-        className="relative min-h-0 flex-1 overflow-y-auto bg-cover bg-center"
+        className="relative min-h-0 flex-1 overflow-y-auto bg-[#0b141a] bg-cover bg-center"
         style={{ backgroundImage: `url(${WHATSAPP_WALLPAPER})` }}
       >
-        <div className={`absolute inset-0 ${settings.darkMode ? "bg-[#0b141a]/80" : "bg-[#efeae2]/35"}`} />
-        <div className={`relative flex min-h-full flex-col ${hasMessages ? "justify-end" : "items-center justify-center"}`}>
+        <div className={`relative flex min-h-full flex-col ${hasMessages ? "justify-end" : "items-center justify-start"}`}>
           {hasMessages ? (
             <div className="flex flex-col gap-1.5 px-3 py-3">
               {messages.map((message) => (
@@ -88,9 +87,9 @@ export function WhatsAppPreview({ messages, receiver, settings, typingText }: Pr
               ))}
             </div>
           ) : (
-            <div className="flex w-full flex-col items-center gap-3 px-5 py-6">
-              <span className="rounded-full bg-[#202c33] px-4 py-1 text-sm font-medium text-white">Today</span>
-              <p className="max-w-[92%] rounded-xl bg-[#202c33]/95 px-5 py-4 text-center text-[15px] leading-6 text-[#ffd166]">
+            <div className="flex w-full flex-col items-center gap-3 px-5 pt-7">
+              <span className="rounded-full bg-[#202c33] px-5 py-1.5 text-[15px] font-semibold text-white shadow-sm">Today</span>
+              <p className="max-w-[92%] rounded-xl bg-[#202c33] px-5 py-4 text-center text-[15px] leading-6 text-[#ffd166] shadow-sm">
                 <Lock className="mr-1 inline-block size-4 align-[-2px]" aria-hidden="true" />
                 Messages and calls are end-to-end encrypted. Only people in this chat can read, listen to, or share them. <strong>Learn more</strong>
               </p>
