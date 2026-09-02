@@ -1,6 +1,6 @@
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import type { Message, Person, Settings } from "../types";
-import { Camera, Check, ChevronLeft, Mic, Phone, Plus, Smile, User, Video } from "lucide-react";
+import { Camera, Check, ChevronLeft, Lock, Mic, Phone, Plus, Smile, User, Video } from "lucide-react";
 import { getInitials } from "../types";
 
 interface PreviewProps {
@@ -12,7 +12,7 @@ interface PreviewProps {
 }
 
 const WHATSAPP_WALLPAPER =
-  "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/unnamed-M7kRtjcW23fbwedTBM6ZRB9lLI04ZC.png";
+  "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/image-VDrj295fgt9MKQjyQH3DC62BBdtkgL.png";
 
 export function WhatsAppPreview({ messages, receiver, settings, typingText }: PreviewProps) {
   const formatTime = (date: Date) =>
@@ -76,9 +76,9 @@ export function WhatsAppPreview({ messages, receiver, settings, typingText }: Pr
                           {formatTime(message.timestamp)}
                         </span>
                         {message.isSender && (
-                          <span className="relative inline-flex w-4 items-center text-[#53bdeb]" aria-label="Read">
-                            <Check className="absolute left-0 size-3.5" strokeWidth={2.5} />
-                            <Check className="absolute left-1.5 size-3.5" strokeWidth={2.5} />
+                          <span className="relative inline-flex h-3.5 w-3.5 shrink-0 items-center text-[#53bdeb]" aria-label="Read">
+                            <Check className="absolute left-0 size-3.5" strokeWidth={2.8} />
+                            <Check className="absolute left-[3px] size-3.5" strokeWidth={2.8} />
                           </span>
                         )}
                       </span>
@@ -88,7 +88,13 @@ export function WhatsAppPreview({ messages, receiver, settings, typingText }: Pr
               ))}
             </div>
           ) : (
-            <p className={`text-sm ${settings.darkMode ? "text-[#8696a0]" : "text-[#667781]"}`}>Start typing to see messages...</p>
+            <div className="flex w-full flex-col items-center gap-3 px-5 py-6">
+              <span className="rounded-full bg-[#202c33] px-4 py-1 text-sm font-medium text-white">Today</span>
+              <p className="max-w-[92%] rounded-xl bg-[#202c33]/95 px-5 py-4 text-center text-[15px] leading-6 text-[#ffd166]">
+                <Lock className="mr-1 inline-block size-4 align-[-2px]" aria-hidden="true" />
+                Messages and calls are end-to-end encrypted. Only people in this chat can read, listen to, or share them. <strong>Learn more</strong>
+              </p>
+            </div>
           )}
         </div>
       </main>
